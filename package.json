@@ -5,14 +5,14 @@
   "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/esm/index.js",
-      "types": "./dist/types/index.d.ts"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
-  "main": "./dist/main.cjs.js",
-  "module": "./dist/main.es.js",
-  "typings": "./dist/main.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -20,15 +20,18 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "build:watch": "tsc && vite build --watch",
-    "preview": "vite preview",
+    "clean": "rm -rf ./dist",
+    "format": "prettier --write \"src/**/*.(ts|js)?x\"",
+    "lint": "eslint -c .eslintrc --ignore-path .eslintignore --ext .ts,.tsx src",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook:build": "storybook build"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^11.0.0",
     "@storybook/addon-essentials": "^7.0.0-beta.43",
     "@storybook/addon-interactions": "^7.0.0-beta.43",
     "@storybook/addon-links": "^7.0.0-beta.43",
@@ -38,13 +41,23 @@
     "@storybook/testing-library": "^0.0.14-next.1",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.13",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
     "postcss": "^8.4.21",
     "prop-types": "^15.8.1",
+    "rollup-plugin-typescript-paths": "^1.4.0",
     "storybook": "^7.0.0-beta.43",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.9.3",
-    "vite": "^4.1.0"
+    "vite": "^4.1.0",
+    "vite-plugin-eslint": "^1.8.1"
   }
 }

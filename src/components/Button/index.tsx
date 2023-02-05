@@ -39,7 +39,7 @@ export default function Button({
         "inline-flex items-center rounded-md border shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2",
         colorStyle,
         sizeStyle,
-        disabledStyle
+        disabledStyle,
       )}
       disabled={disabled}
       {...props}
