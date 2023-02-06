@@ -23,7 +23,7 @@ export default function Input({
               "inline-flex items-center rounded-l-md border border-r-0 bg-gray-50 px-3 text-gray-500 sm:text-sm",
               disabled
                 ? "cursor-not-allowed border-gray-200"
-                : "border-gray-300 ",
+                : "border-gray-300",
             )}
           >
             {addOn}
@@ -34,17 +34,15 @@ export default function Input({
           id={name}
           type={type}
           className={classNames(
-            "block w-full border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500",
-            addOn ? "rounded-r-md" : "rounded-md",
+            "block w-full border border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm",
+            "disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500",
+            addOn ? "min-w-0 flex-1 rounded-r-md" : "rounded-md",
           )}
+          disabled={disabled}
           {...props}
         />
       </div>
-      {hint && (
-        <p className="mt-2 text-sm text-gray-500" id="email-description">
-          {hint}
-        </p>
-      )}
+      {hint && <p className="mt-2 text-sm text-gray-500">{hint}</p>}
     </div>
   );
 }

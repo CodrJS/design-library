@@ -21,7 +21,7 @@
     "build": "tsc && vite build",
     "build:watch": "tsc && vite build --watch",
     "clean": "rm -rf ./dist",
-    "format": "prettier --write \"src/**/*.(ts|js)?x\"",
+    "format": "prettier --write \"src/**/*.(ts|js|md)?x\"",
     "lint": "eslint -c .eslintrc --ignore-path .eslintignore --ext .ts,.tsx src",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
@@ -29,6 +29,10 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.0.0",
@@ -39,6 +43,8 @@
     "@storybook/react": "^7.0.0-beta.43",
     "@storybook/react-vite": "^7.0.0-beta.43",
     "@storybook/testing-library": "^0.0.14-next.1",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "^5.50.0",

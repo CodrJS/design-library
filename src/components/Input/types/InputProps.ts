@@ -1,7 +1,8 @@
-import { InputHTMLAttributes } from "react";
+import type { HTMLInputTypeAttribute } from "react";
+
 export default interface InputProps {
   name: string;
-  type?: InputHTMLAttributes<HTMLInputElement>["type"];
+  type?: HTMLInputTypeAttribute;
   placeholder?: string;
   hint?: string;
   disabled?: boolean;
@@ -9,5 +10,5 @@ export default interface InputProps {
   defaultChecked?: boolean;
   required?: boolean;
   label?: string;
-  addOn?: string;
+  addOn?: React.ReactNode;
 }

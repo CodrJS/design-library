@@ -13,12 +13,14 @@ export default function Badge({
   size = "small",
   color = "primary",
   danger = false,
+  outline = true,
 }: BadgeProps) {
   return (
     <span
       className={classNames(
         "inline-flex items-center rounded-full py-0.5 font-medium text-gray-800",
         sizeStyle[size],
+        outline ? "border" : "",
         danger ? BadgeColors["red"] : BadgeColors[color],
       )}
     >

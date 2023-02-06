@@ -14,7 +14,7 @@ export default function Checkbox({
           id={name}
           name={name}
           type="checkbox"
-          className="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+          className="h-4 w-4 rounded border-primary-300 text-primary-600 focus:ring-primary-500 cursor-pointer"
           {...props}
         />
       </div>
