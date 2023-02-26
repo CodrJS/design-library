@@ -2,7 +2,7 @@ import { ChangeEvent } from "react";
 
 export default interface CheckboxProps {
   name: string;
-  // size?: "small" | "medium" | "large";
+  // size?: "small" | "default" | "large";
   label?: string;
   disabled?: boolean;
   defaultChecked?: boolean;
