@@ -17,12 +17,13 @@
     "dist"
   ],
   "scripts": {
+    "start": "npx http-server ./storybook-static",
     "clean": "rm -rf ./dist",
     "format": "prettier --write \"(src|?.storybook)/**/*.(ts|js|md)?x\"",
     "lint": "eslint -c .eslintrc --ignore-path .eslintignore --ext .ts,.tsx src",
+    "test": "jest --config jest.config.json --passWithNoTests --coverage",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build --docs",
-    "storybook:start": "storybook start --docs --no-manager-cache",
     "build:esm": "tsc --project tsconfig.esm.json",
     "build:cjs": "tsc --project tsconfig.cjs.json",
     "build": "yarn clean && yarn build:cjs && yarn build:esm && ./bin/post-build.sh"
@@ -47,6 +48,7 @@
     "@storybook/react": "^7.0.0-beta.54",
     "@storybook/react-vite": "^7.0.0-beta.54",
     "@storybook/testing-library": "^0.0.14-next.1",
+    "@swc/jest": "^0.2.24",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
     "@types/react": "^18.0.27",
@@ -61,6 +63,7 @@
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
+    "jest": "^29.4.3",
     "postcss": "^8.4.21",
     "prop-types": "^15.8.1",
     "rollup-plugin-typescript-paths": "^1.4.0",

@@ -8,8 +8,8 @@ import ButtonProps from "./types/ButtonProps";
 export default function Button({
   primary = false,
   disabled = false,
-  size = "medium",
-  label,
+  size = "default",
+  children,
   ...props
 }: ButtonProps) {
   const colorStyle = primary
@@ -24,7 +24,7 @@ export default function Button({
     case "large":
       sizeStyle = "px-4 py-2 text-base font-medium";
       break;
-    case "medium":
+    case "default":
     default:
       sizeStyle = "px-4 py-2 text-sm font-medium";
   }
@@ -44,7 +44,7 @@ export default function Button({
       disabled={disabled}
       {...props}
     >
-      {label}
+      {children}
     </button>
   );
 }
