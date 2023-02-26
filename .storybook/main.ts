@@ -1,19 +1,43 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import { mergeConfig } from "vite";
+import path from "path";
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../storybook/**/*.mdx",
+    "../storybook/**/*.stories.@(js|jsx|ts|tsx)",
+  ],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
   ],
-  framework: {
-    name: "@storybook/react-vite",
-    options: {},
-  },
+  framework: "@storybook/react-vite",
   docs: {
     autodocs: "tag",
   },
-  features: {},
+  core: {
+    builder: "@storybook/builder-vite",
+  },
+  async viteFinal(config, options) {
+    // Customize the Vite config here
+    return mergeConfig(config, {
+      resolve: {
+        alias: [
+          {
+            find: "~",
+            replacement: path.resolve(__dirname, "../src"),
+          },
+        ],
+      },
+      // Add dependencies to pre-optimization
+      optimizeDeps: {
+        include: ["storybook-dark-mode"],
+      },
+    });
+  },
+  features: {
+    storyStoreV7: true,
+  },
 };
 export default config;

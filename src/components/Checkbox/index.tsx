@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "../../utils/classNames";
 import CheckboxProps from "./types/CheckboxProps";
 
 export default function Checkbox({
@@ -14,7 +15,11 @@ export default function Checkbox({
           id={name}
           name={name}
           type="checkbox"
-          className="h-4 w-4 rounded border-primary-300 text-primary-600 focus:ring-primary-500 cursor-pointer"
+          className={classNames(
+            "h-4 w-4 rounded cursor-pointer",
+            "border-primary-300 text-primary-600 focus:ring-primary-500",
+            "disabled:cursor-not-allowed",
+          )}
           {...props}
         />
       </div>

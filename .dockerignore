@@ -1,0 +1,7 @@
+dist/
+node_modules/
+.vscode/
+.prettierrc
+.eslintrc
+.prettierignore
+.eslintignore
