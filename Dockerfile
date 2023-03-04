@@ -12,6 +12,7 @@ COPY . .
 RUN yarn storybook:build
 
 ### run the code
-FROM nginx AS runner
+FROM nginx:alpine AS runner
 WORKDIR /usr/share/nginx/html
 COPY --from=builder /usr/src/storybook-static .
+COPY --from=builder /usr/src/nginx.conf /etc/nginx/conf.d/default.conf
